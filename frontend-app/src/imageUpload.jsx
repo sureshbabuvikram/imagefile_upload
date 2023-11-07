@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
-
-
-
 const ImageUpload = () => {
     const[image, setImage]=useState(null);
     const[getImg, setGetImg]=useState(null);
     const[res, setRes]=useState("");
-
-
 
     useEffect(()=>{
         getImage();
