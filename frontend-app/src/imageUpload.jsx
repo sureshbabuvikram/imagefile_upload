@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import path from 'path';
+
 
 
 
@@ -11,9 +9,7 @@ const ImageUpload = () => {
     const[getImg, setGetImg]=useState(null);
     const[res, setRes]=useState("");
 
-    const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-console.log('__dirname:', __dirname);
+
 
     useEffect(()=>{
         getImage();
