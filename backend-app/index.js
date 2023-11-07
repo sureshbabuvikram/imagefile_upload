@@ -13,13 +13,13 @@ const __dirname = dirname(__filename);
 console.log('__dirname:', __dirname);
 
 
-//const destinationPath = path.join('/opt/render/project/src/backend-app', '/opt/render/project/src/frontend-app/src/images')
+const destinationPath = path.join('/opt/render/project/src', '/frontend-app/src/images')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       // cb(null, '../frontend-app/src/images')
-      cb(null, '/opt/render/project/src/frontend-app/src/images')
+      // cb(null, '/opt/render/project/src/frontend-app/src/images')
       // cb(null, '/opt/render/project/src/backend-app')
-      // cb(null, destinationPath)
+      cb(null, destinationPath)
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
