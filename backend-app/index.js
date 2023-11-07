@@ -5,6 +5,7 @@ import Image from './image.schema.js'
 import connectDB from './dbConfig.js'
 import path from 'path'
 
+console.log('__dirname:', __dirname);
 
 // const destinationPath = path.join(__dirname, '../frontend-app/src/images')
 const storage = multer.diskStorage({
