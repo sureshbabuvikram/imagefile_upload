@@ -3,12 +3,14 @@ import cors from 'cors'
 import multer from 'multer'
 import Image from './image.schema.js'
 import connectDB from './dbConfig.js'
+import path from 'path'
 
 
-
+const destinationPath = path.join('frontend-app', '/src/images')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '../frontend-app/src/images')
+      // cb(null, '../frontend-app/src/images')
+      cb(null, destinationPath)
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
