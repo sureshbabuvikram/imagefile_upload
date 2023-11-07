@@ -1,0 +1,55 @@
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+
+const ImageUpload = () => {
+    const[image, setImage]=useState(null);
+    const[getImg, setGetImg]=useState(null);
+    const[res, setRes]=useState("");
+
+    useEffect(()=>{
+        getImage();
+    },[res])
+
+    const fileUpload=(e)=>{
+       console.log(e.target.files[0]); 
+       setImage(e.target.files[0])
+    }
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const formData= new FormData()
+        formData.append("image", image)
+
+        const result=axios.post("http://localhost:5000/upload",
+         formData,
+        {
+            headers:{"Content-Type":"multipart/form-data"}
+        }
+        )
+        setRes(result)
+    }
+
+    const getImage=async()=>{
+        const result= await axios.get("http://localhost:5000/getimage")
+        console.log("result",result);
+        console.log("image",result.data.image);
+        setGetImg(result.data.data)
+    }
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type='file' accept='image/*' onChange={fileUpload} />
+                <button type='submit'>submit</button>
+            </form>
+
+            {getImg==null?"": getImg.map((data)=>{
+                // return <img  src={`${imagePath}/${data.image}`}                    
+                return (
+                <img  src={`src/images/${data.image}`}                    
+                    height={100} 
+                    width={100} />  )
+            })}
+        </div>
+    );
+};
+
+export default ImageUpload;
