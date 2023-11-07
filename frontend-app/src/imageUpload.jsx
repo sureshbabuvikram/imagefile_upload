@@ -47,8 +47,7 @@ const ImageUpload = () => {
             {getImg==null?"": getImg.map((data)=>{
                 // return <img  src={`${imagePath}/${data.image}`}                    
                 return (
-                // <img  src={`src/images/${data.image}`}                    
-                <img  src={`/images/${data.image}`}                    
+                <img  src={`src/images/${data.image}`}                    
                     height={100} 
                     width={100} />  )
             })}
