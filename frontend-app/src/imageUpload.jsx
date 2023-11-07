@@ -33,7 +33,7 @@ const ImageUpload = () => {
         // const result= await axios.get("http://localhost:5000/getimage")
         const result= await axios.get("https://imageuploadfile.onrender.com/getimage")
         console.log("result",result);
-        console.log("image",result.data.data.image);
+        console.log("image",result.data.image);
         setGetImg(result.data.data)
     }
     return (
