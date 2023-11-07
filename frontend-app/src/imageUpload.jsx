@@ -35,6 +35,7 @@ const ImageUpload = () => {
         console.log("result",result);
         console.log("image",result.data);
         setGetImg(result.data.data)
+        console.log("getImg",getImg);
     }
     return (
         <div>
