@@ -19,7 +19,8 @@ const ImageUpload = () => {
         const formData= new FormData()
         formData.append("image", image)
 
-        const result=axios.post("http://localhost:5000/upload",
+        // const result=axios.post("http://localhost:5000/upload",
+        const result=axios.post("https://imageuploadfile.onrender.com/upload",
          formData,
         {
             headers:{"Content-Type":"multipart/form-data"}
@@ -29,7 +30,8 @@ const ImageUpload = () => {
     }
 
     const getImage=async()=>{
-        const result= await axios.get("http://localhost:5000/getimage")
+        // const result= await axios.get("http://localhost:5000/getimage")
+        const result= await axios.get("https://imageuploadfile.onrender.com/getimage")
         console.log("result",result);
         console.log("image",result.data.image);
         setGetImg(result.data.data)
