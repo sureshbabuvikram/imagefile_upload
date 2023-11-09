@@ -4,22 +4,10 @@ import multer from 'multer'
 import Image from './image.schema.js'
 import connectDB from './dbConfig.js'
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import path from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-console.log('__dirname:', __dirname);
-
-
-const destinationPath = path.join('/opt/render/project/src/backend-app', '../frontend-app/src/images')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      // cb(null, '../frontend-app/src/images')
-      // cb(null, '/opt/render/project/src/frontend-app/src/images')
-      // cb(null, '/opt/render/project/src/backend-app')
-      cb(null, destinationPath)
+      // cb(null, '../frontend-app/src/images')     
+      cb(null, './uploads')     
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
@@ -30,6 +18,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 const app= express()
 app.use(cors())
+app.use("/uploads",express.static("uploads"))
 connectDB();
 
 //should be same name in frontend (upload.single("image"))
