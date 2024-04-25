@@ -50,8 +50,8 @@ const ImageUpload = () => {
                 // <img  src={`src/images/${data.image}`}                    
                 // <img  src={`http://localhost:5000/uploads/${data.image}`}                    
                 <img  src={`https://imageuploadfile.onrender.com/uploads/${data.image}`}                    
-                    height={100} 
-                    width={100} />  )
+                    height={200} 
+                    width={200} />  )
             })}
         </div>
     );
