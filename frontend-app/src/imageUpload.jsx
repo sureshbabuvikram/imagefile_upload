@@ -14,13 +14,13 @@ const ImageUpload = () => {
        console.log(e.target.files[0]); 
        setImage(e.target.files[0])
     }
-    const handleSubmit=(e)=>{
+    const handleSubmit=async(e)=>{
         e.preventDefault();
         const formData= new FormData()
         formData.append("image", image)
 
         // const result=axios.post("http://localhost:5000/upload",
-        const result=axios.post("https://imageuploadfile.onrender.com/upload",
+        const result=await axios.post("https://imageuploadfile.onrender.com/upload",
          formData,
         {
             headers:{"Content-Type":"multipart/form-data"}
@@ -44,7 +44,7 @@ const ImageUpload = () => {
                 <button type='submit'>submit</button>
             </form>
 
-            {getImg==null?"": getImg.map((data)=>{
+            {getImg==null?"No files": getImg.map((data)=>{
                 // return <img  src={`${imagePath}/${data.image}`}                    
                 return (
                 // <img  src={`src/images/${data.image}`}                    
